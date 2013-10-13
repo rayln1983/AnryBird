@@ -18,9 +18,14 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 #pragma mark - PhysicsSprite
 @implementation PhysicsSprite
 
+
 -(void) setPhysicsBody:(cpBody *)body
 {
 	body_ = body;
+}
+
+- (void)setPhysicsSpace:(cpSpace *)space{
+    space_ = space;
 }
 
 // this method will only get called if the sprite is batched.

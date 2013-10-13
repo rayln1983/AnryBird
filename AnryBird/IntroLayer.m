@@ -60,7 +60,7 @@
 
 -(void) makeTransition:(ccTime)dt
 {
-    CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"StartMain.ccbi"];
+    CCScene *scene = [CCBReader sceneWithNodeGraphFromFile:@"StartMain.ccbi" ];
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:scene withColor:ccWHITE]];
 }
 @end

@@ -1,9 +1,9 @@
 //
 //  HelloWorldLayer.h
-//  AnryBird
+//  Test12
 //
-//  Created by Rayln Guan on 10/11/13.
-//  Copyright __MyCompanyName__ 2013. All rights reserved.
+//  Created by rayln on 13-10-13.
+//  Copyright __MyCompanyName__ 2013年. All rights reserved.
 //
 
 

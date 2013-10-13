@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[MainScene init]:MainScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_bird">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[CCBReader callDidLoadFromCCBForNodeGraph:]:CCBReader.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "didLoadFromCCB">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

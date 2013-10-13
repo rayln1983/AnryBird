@@ -9,11 +9,12 @@
 #import "cocos2d.h"
 #import "chipmunk.h"
 
-@interface PhysicsSprite : CCSprite
-{
+@interface PhysicsSprite : CCSprite{
 	cpBody *body_;	// strong ref
+    cpSpace *space_;
+    cpShape *shape_;
 }
 
 -(void) setPhysicsBody:(cpBody*)body;
-
+-(void) setPhysicsSpace:(cpSpace*)space;
 @end

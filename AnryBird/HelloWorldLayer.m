@@ -1,9 +1,9 @@
 //
 //  HelloWorldLayer.m
-//  AnryBird
+//  Test12
 //
-//  Created by Rayln Guan on 10/11/13.
-//  Copyright __MyCompanyName__ 2013. All rights reserved.
+//  Created by rayln on 13-10-13.
+//  Copyright __MyCompanyName__ 2013年. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -218,7 +218,7 @@ enum {
 		cpv( 24, 54),
 		cpv( 24,-54),
 	};
-	
+	//cpMomentForPoly(<#cpFloat m#>, <#int numVerts#>, <#const cpVect *verts#>, <#cpVect offset#>)
 	cpBody *body = cpBodyNew(1.0f, cpMomentForPoly(1.0f, num, verts, CGPointZero));
 	cpBodySetPos( body, pos );
 	cpSpaceAddBody(space_, body);
