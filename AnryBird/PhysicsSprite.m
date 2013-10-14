@@ -64,6 +64,10 @@ void removeShape( cpBody *body, cpShape *shape, void *data )
 	return transform_;
 }
 
+- (cpBody *)getBody{
+    return body_;
+}
+
 -(void) dealloc
 {
 	cpBodyEachShape(body_, removeShape, NULL);

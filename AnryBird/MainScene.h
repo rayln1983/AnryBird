@@ -14,8 +14,9 @@
 
 @interface MainScene : CCLayer {
     cpSpace *space_;
-
+    cpShape *walls_[4];
 }
+@property (nonatomic, assign) CGSize winSize;
 @property (nonatomic, strong) Bird *bird;
 
 @end
