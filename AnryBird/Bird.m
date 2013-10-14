@@ -21,7 +21,7 @@
 
 - (void)initElements:(cpSpace *)space{
     space_ = space;
-    cpBodySetPos(body_, ccp(300, 62));
+    cpBodySetPos(body_, ccp(100, 62));
     cpSpaceAddBody(space_, body_);
     
     int num = 4;
