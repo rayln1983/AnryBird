@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnryBird/MainScene.m"
-            timestampString = "403510277.750745"
+            timestampString = "403584862.55205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "-init"
             landmarkType = "5">
          </BreakpointContent>
@@ -32,6 +32,22 @@
             startingLineNumber = "1088"
             endingLineNumber = "1088"
             landmarkName = "+nodeGraphFromFile:owner:parentSize:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnryBird/Bird.m"
+            timestampString = "403604236.961006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-initElements:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -11,4 +11,11 @@
 
 @implementation SlingshotLeft
 
+- (id)init{
+    if (self = [super init]) {
+        [self setZOrder:2];
+    }
+    return self;
+}
+
 @end

@@ -11,11 +11,18 @@
 
 @implementation SlingshotRight
 
+- (id)init{
+    if (self = [super init]) {
+        [self setZOrder:0];
+    }
+    return self;
+}
+
 - (void)draw{
     [super draw];
     ccDrawColor4B(46, 24, 8, 255);
     glLineWidth(15);
-    ccDrawLine(ccp(-10, 86), ccp(101, 131));
+    ccDrawLine(ccp(-10, 86), ccp(5, 84));
     
 }
 

@@ -13,6 +13,9 @@
 @interface Bird : PhysicsSprite {
     
 }
-- (void)initElements:(cpSpace *)space;
 
+- (void)initElements:(cpSpace *)space;
+- (void)active;
+- (void)animation;
+- (void)setPos:(cpVect)point;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MainScene.h"
+
 #define WALL_X 0
 #define WALL_Y 45
 #define GRAVITY cpv(0, -100)
@@ -42,9 +43,10 @@
 		cpSpaceAddStaticShape(space_, walls_[i] );
 	}
     //cpBody *tem = cpBodyNew(1.0, 1.0);
-    move = cpSegmentShapeNew( space_->staticBody, cpv(45,100), cpv(55,100), 0.0f);
-    //cpSpaceAddStaticShape(space_, move);
-    cpSpaceAddShape(space_, move);
+    move = cpSegmentShapeNew( space_->staticBody, cpv(105,120), cpv(120,120), 0.0f);
+    cpShapeSetFriction(move, 100);
+    cpSpaceAddStaticShape(space_, move);
+    
 }
 
 -(void) update:(ccTime) delta
@@ -64,8 +66,26 @@
 
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    //[_bird active];
     //cpBodySetVel([_bird getBody], ccp(100, 100));
-    cpBodySetPos(space_->staticBody, ccp(100, 100));
+    //[_bird animation];
+    UITouch *t = [touches anyObject];
+    CGPoint pt = [self convertTouchToNodeSpace:t];
+    NSLog(@"%f,%f", pt.x, pt.y);
+    
+    //self.bird.shape
+    
+    [_bird setPos:cpv(pt.x, pt.y)];
+}
+
+- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *t = [touches anyObject];
+    CGPoint pt = [self convertTouchToNodeSpace:t];
+    NSLog(@"%f,%f", pt.x, pt.y);
+    
+    //self.bird.shape
+    
+    [_bird setPos:cpv(pt.x, pt.y)];
 }
 - (void)draw{
     
