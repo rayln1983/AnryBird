@@ -13,8 +13,6 @@
 @interface Bird : PhysicsSprite {
     
 }
-@property (nonatomic, assign) int value;
-
 - (void)initElements:(cpSpace *)space;
 
 @end
