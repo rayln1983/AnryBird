@@ -72,7 +72,6 @@ enum COLLISION_TYPE{
     [_slingshotRight initElements:space_];
     [_slingshotLeft initElements:space_];
     [self initConstraint];
-    
     cpSpaceAddCollisionHandler(space_, 1, 2, beginBulletToEnemy, NULL, NULL, NULL, NULL);
 }
 
