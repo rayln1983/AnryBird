@@ -17,4 +17,5 @@
 
 -(void) setPhysicsBody:(cpBody*)body;
 -(void) setPhysicsSpace:(cpSpace*)space;
+-(cpBody *)getBody;
 @end

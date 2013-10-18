@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243B972B180D0F0100E3EAF3 /* SlingshotRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B972A180D0F0100E3EAF3 /* SlingshotRight.m */; };
+		243B972E180D0F0C00E3EAF3 /* SlingshotLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = 243B972D180D0F0C00E3EAF3 /* SlingshotLeft.m */; };
 		244C65D7180A69B9008EB66D /* Main.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = 244C65D6180A69B9008EB66D /* Main.ccbi */; };
 		244C65E1180A6AB7008EB66D /* arrow-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 244C65D8180A6AB7008EB66D /* arrow-left.png */; };
 		244C65E2180A6AB7008EB66D /* arrow-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 244C65D9180A6AB7008EB66D /* arrow-left@2x.png */; };
@@ -250,6 +252,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		243B9729180D0F0100E3EAF3 /* SlingshotRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlingshotRight.h; sourceTree = "<group>"; };
+		243B972A180D0F0100E3EAF3 /* SlingshotRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlingshotRight.m; sourceTree = "<group>"; };
+		243B972C180D0F0C00E3EAF3 /* SlingshotLeft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlingshotLeft.h; sourceTree = "<group>"; };
+		243B972D180D0F0C00E3EAF3 /* SlingshotLeft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlingshotLeft.m; sourceTree = "<group>"; };
 		244C65D6180A69B9008EB66D /* Main.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = Main.ccbi; sourceTree = "<group>"; };
 		244C65D8180A6AB7008EB66D /* arrow-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left.png"; sourceTree = "<group>"; };
 		244C65D9180A6AB7008EB66D /* arrow-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left@2x.png"; sourceTree = "<group>"; };
@@ -714,6 +720,10 @@
 				24E0FDB61807EFAD006D8D3D /* PhysicsSprite.m */,
 				244C65F2180A6F1B008EB66D /* Bird.h */,
 				244C65F3180A6F1B008EB66D /* Bird.m */,
+				243B9729180D0F0100E3EAF3 /* SlingshotRight.h */,
+				243B972A180D0F0100E3EAF3 /* SlingshotRight.m */,
+				243B972C180D0F0C00E3EAF3 /* SlingshotLeft.h */,
+				243B972D180D0F0C00E3EAF3 /* SlingshotLeft.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -1660,6 +1670,7 @@
 				24E0FCE81807EFAB006D8D3D /* ccCArray.m in Sources */,
 				24E0FCEB1807EFAB006D8D3D /* CCFileUtils.m in Sources */,
 				24E0FCEE1807EFAB006D8D3D /* CCProfiling.m in Sources */,
+				243B972E180D0F0C00E3EAF3 /* SlingshotLeft.m in Sources */,
 				24E0FCF01807EFAB006D8D3D /* ccUtils.c in Sources */,
 				24E0FCF41807EFAB006D8D3D /* CCVertex.m in Sources */,
 				24E0FCF71807EFAB006D8D3D /* CGPointExtension.m in Sources */,
@@ -1686,6 +1697,7 @@
 				24E0FD471807EFAC006D8D3D /* vec4.c in Sources */,
 				24E0FD6B1807EFAC006D8D3D /* chipmunk.c in Sources */,
 				24E0FD6F1807EFAC006D8D3D /* cpConstraint.c in Sources */,
+				243B972B180D0F0100E3EAF3 /* SlingshotRight.m in Sources */,
 				24E0FD711807EFAC006D8D3D /* cpDampedRotarySpring.c in Sources */,
 				24E0FD731807EFAC006D8D3D /* cpDampedSpring.c in Sources */,
 				24E0FD751807EFAC006D8D3D /* cpGearJoint.c in Sources */,

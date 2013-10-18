@@ -5,40 +5,61 @@
 //  Created by rayln on 13-10-13.
 //  Copyright 2013年 __MyCompanyName__. All rights reserved.
 //
-
+#define INIT_POSITION ccp(11,130)
+#define MASS 100.0f
+#define COLLISION_TYPE 1
 #import "Bird.h"
-
 
 @implementation Bird
 
 - (id)init{
     if (self = [super init]) {
-        _value = 2;
-        NSLog(@"=====bird==init==========");
-        body_ = cpBodyNew(1.0f, cpMomentForCircle(1.0f, 12.0f, 12.0f, CGPointZero));
-        cpBodySetPos(body_, ccp(100, 100));
+        body_ = cpBodyNew(MASS, cpMomentForCircle(MASS, 12.0f, 12.0f, CGPointZero));
+        [self setZOrder:1];
     }
     return self;
 }
 
 - (void)initElements:(cpSpace *)space{
-    NSLog(@"=====bird==initElements==========");
     space_ = space;
-    cpBodySetPos(body_, ccp(200, 200));
+    cpBodySetPos(body_, INIT_POSITION);
     cpSpaceAddBody(space_, body_);
     
-    int num = 4;
-	cpVect verts[] = {
-		cpv(-24,-54),
-		cpv(-24, 54),
-		cpv( 24, 54),
-		cpv( 24,-54),
-	};
-    cpShape* shape = cpPolyShapeNew(body_, num, verts, CGPointZero);
-	cpShapeSetElasticity( shape, 0.5f );
-	cpShapeSetFriction( shape, 0.5f );
-	cpSpaceAddShape(space_, shape);
-    //self.position = ccp(100, 100);
+    shape_ = cpCircleShapeNew(body_, 12.0f, CGPointZero);
+	cpShapeSetElasticity( shape_, 0.5f );
+	cpShapeSetFriction( shape_, 0.5f );
+    cpShapeSetCollisionType(shape_, COLLISION_TYPE);
+    cpShapeSetLayers(shape_, 2);
+    
+	cpSpaceAddShape(space_, shape_);
+    //cpBodySleep(body_);
 }
-
+- (void)active{
+    //cpSpaceAddBody(space_, body_);
+    cpBodyActivate(body_);
+}
+- (void)animation{
+//    CABasicAnimation *ani = [CABasicAnimation animationWithKeyPath:@"transform.translation"];
+//    
+//    ani.duration = 1;
+//    ani.repeatCount = 0;
+//    ani.toValue = [NSValue valueWithCGPoint:CGPointMake(200, 200)];
+//    //ani.toValue = [NSNumber numberWithFloat:200.0f];
+//    [self animationDidStart:ani];
+    //cpBodyActivate(body_);
+//    cpBodySetPos(body_, cpv(200, 200));
+    //body_->velocity_func = updateTemp;
+    
+    cpBodyActivate(body_);
+    CCMoveTo *mov = [CCMoveTo actionWithDuration:1 position:ccp(200, 200)];
+    [self runAction:mov];
+    
+}
+- (void)setPos:(cpVect)point{
+    cpBodySetPos(body_, point);
+    //cpBodySleep(body_);
+}
+- (void)draw{
+    [super draw];
+}
 @end

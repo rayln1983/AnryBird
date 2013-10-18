@@ -13,8 +13,9 @@
 @interface Bird : PhysicsSprite {
     
 }
-@property (nonatomic, assign) int value;
 
 - (void)initElements:(cpSpace *)space;
-
+- (void)active;
+- (void)animation;
+- (void)setPos:(cpVect)point;
 @end
