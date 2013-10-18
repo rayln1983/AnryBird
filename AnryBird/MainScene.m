@@ -11,6 +11,10 @@
 #define WALL_X 0
 #define WALL_Y 45
 #define GRAVITY cpv(0, -100)
+enum COLLISION_TYPE{
+    COLLISION_BIRD=1,
+    COLLISION_SLING=2
+};
 
 @implementation MainScene
 
@@ -28,6 +32,8 @@
 - (void)initElements{
     space_ = cpSpaceNew();
     cpSpaceSetGravity( space_, GRAVITY );
+    cpSpaceSetIterations(space_, 30);
+	cpSpaceSetDamping(space_, 0.8);
 	// bottom
 	walls_[0] = cpSegmentShapeNew( space_->staticBody, cpv(WALL_X,WALL_Y), cpv(_winSize.width,WALL_Y), 0.0f);
 	// top
@@ -54,16 +60,51 @@
 	// Should use a fixed size step based on the animation interval.
 	int steps = 2;
 	CGFloat dt = [[CCDirector sharedDirector] animationInterval]/(CGFloat)steps;
-	
+
 	for(int i=0; i<steps; i++){
 		cpSpaceStep(space_, dt);
+        
 	}
 }
 
 - (void)didLoadFromCCB{
     [_bird initElements:space_];
+    [_slingshotRight initElements:space_];
+    [_slingshotLeft initElements:space_];
+    [self initConstraint];
+    
+    cpSpaceAddCollisionHandler(space_, 1, 2, beginBulletToEnemy, NULL, NULL, NULL, NULL);
 }
 
+- (void)initConstraint{
+    ccDrawColor4B(46, 24, 8, 255);
+    
+    glLineWidth(15);
+    cpBody *staticBody = cpSpaceGetStaticBody(space_);
+    //cpConstraint *dollyServo = cpSpaceAddConstraint(space_, cpPivotJointNew(staticBody, _slingshotRight.getBody, cpBodyGetPos(_bird.getBody)));
+    cpConstraint *dollyServo = cpSpaceAddConstraint(space_, cpSlideJointNew(_slingshotLeft.getBody, _bird.getBody, cpvzero, cpvzero, 0, 100));
+    
+    //cpConstraint *dollyServo = cpSpaceAddConstraint(space_, cpGrooveJointNew(_slingshotLeft.getBody, _bird.getBody, cpv(200, 200), cpv(400, 200), cpvzero));
+    cpConstraintSetPostSolveFunc(dollyServo, constraintPost);
+}
+
+int beginBulletToEnemy(cpArbiter *arb, cpSpace *space, void *unused){
+    NSLog(@"=============beginBulletToEnemy================");
+    //CP_ARBITER_GET_SHAPES取出是哪两个shape发生了碰撞，a，b是emery还是bullet，与之前设置回调函数时的第2，3参数的顺序有关
+	CP_ARBITER_GET_SHAPES(arb, a, b);
+    //我们不能直接在begin函数里面释放刚体或者shape，要等chipmunk做完必要的计算后才能释放。cpSpaceAddPostStepCallback用来安全的完成这个步骤
+	cpSpaceAddPostStepCallback(space, (cpPostStepFunc)beginBulletToBomb, a, NULL);
+	// The object is dead, don't process the collision further
+    //返回1是物体撞击事件有效
+    //返回0是物体撞击事件无效
+	return 0;
+}
+int beginBulletToBomb(cpArbiter *arb, cpSpace *space, void *unused){
+	return 0;
+}
+void constraintPost(){
+    
+}
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     //[_bird active];
@@ -84,12 +125,8 @@
     NSLog(@"%f,%f", pt.x, pt.y);
     
     //self.bird.shape
-    
+    cpBodySetAngle(_bird.getBody, 0);
     [_bird setPos:cpv(pt.x, pt.y)];
-}
-- (void)draw{
-    
-    [super draw];
 }
 
 - (void)dealloc{

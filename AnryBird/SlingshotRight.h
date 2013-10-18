@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "PhysicsSprite.h"
 
-@interface SlingshotRight : CCSprite {
+@interface SlingshotRight : PhysicsSprite {
     
 }
-
+- (void)initElements:(cpSpace *)space;
 @end

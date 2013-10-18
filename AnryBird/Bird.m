@@ -5,8 +5,9 @@
 //  Created by rayln on 13-10-13.
 //  Copyright 2013年 __MyCompanyName__. All rights reserved.
 //
-#define INIT_POSITION ccp(111,130)
+#define INIT_POSITION ccp(11,130)
 #define MASS 100.0f
+#define COLLISION_TYPE 1
 #import "Bird.h"
 
 @implementation Bird
@@ -22,16 +23,16 @@
 - (void)initElements:(cpSpace *)space{
     space_ = space;
     cpBodySetPos(body_, INIT_POSITION);
-    
     cpSpaceAddBody(space_, body_);
     
     shape_ = cpCircleShapeNew(body_, 12.0f, CGPointZero);
 	cpShapeSetElasticity( shape_, 0.5f );
 	cpShapeSetFriction( shape_, 0.5f );
-	cpSpaceAddShape(space_, shape_);
+    cpShapeSetCollisionType(shape_, COLLISION_TYPE);
+    cpShapeSetLayers(shape_, 2);
     
-    cpBodySleep(body_);
-    //cpBodyUpdatePosition(<#cpBody *body#>, <#cpFloat dt#>)
+	cpSpaceAddShape(space_, shape_);
+    //cpBodySleep(body_);
 }
 - (void)active{
     //cpSpaceAddBody(space_, body_);
@@ -56,7 +57,7 @@
 }
 - (void)setPos:(cpVect)point{
     cpBodySetPos(body_, point);
-    cpBodySleep(body_);
+    //cpBodySleep(body_);
 }
 - (void)draw{
     [super draw];
