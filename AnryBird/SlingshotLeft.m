@@ -31,7 +31,7 @@
     
     shape_ = cpBoxShapeNew(staticBody, WIDTH, HEIGHT);
 	cpShapeSetElasticity( shape_, 0.0f );
-	cpShapeSetFriction( shape_, 0.5f );
+	cpShapeSetFriction( shape_, 0.0f );
     cpShapeSetCollisionType(shape_, COLLISION_TYPE);
     cpShapeSetLayers(shape_, 3);
 
