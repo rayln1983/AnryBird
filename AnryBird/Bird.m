@@ -22,6 +22,7 @@
 
 - (void)initElements:(cpSpace *)space{
     space_ = space;
+    cpBody *staticBody = cpSpaceGetStaticBody(space_);
     cpBodySetPos(body_, INIT_POSITION);
     cpSpaceAddBody(space_, body_);
     
@@ -29,7 +30,7 @@
 	cpShapeSetElasticity( shape_, 0.5f );
 	cpShapeSetFriction( shape_, 0.5f );
     cpShapeSetCollisionType(shape_, COLLISION_TYPE);
-    cpShapeSetLayers(shape_, 2);
+    cpShapeSetLayers(shape_, 4);
     
 	cpSpaceAddShape(space_, shape_);
     //cpBodySleep(body_);
