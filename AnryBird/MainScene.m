@@ -72,7 +72,6 @@ enum COLLISION_TYPE{
     [_slingshotRight initElements:space_];
     [_slingshotLeft initElements:space_];
     [self initConstraint];
-    
     cpSpaceAddCollisionHandler(space_, 1, 2, beginBulletToEnemy, NULL, NULL, NULL, NULL);
 }
 
@@ -82,7 +81,7 @@ enum COLLISION_TYPE{
     glLineWidth(15);
     cpBody *staticBody = cpSpaceGetStaticBody(space_);
     //cpConstraint *dollyServo = cpSpaceAddConstraint(space_, cpPivotJointNew(staticBody, _slingshotRight.getBody, cpBodyGetPos(_bird.getBody)));
-    cpConstraint *dollyServo = cpSpaceAddConstraint(space_, cpSlideJointNew(_slingshotLeft.getBody, _bird.getBody, cpvzero, cpvzero, 0, 100));
+    cpConstraint *dollyServo = cpSpaceAddConstraint(space_, cpSlideJointNew(_slingshotLeft.getBody, _bird.getBody, cpvzero, cpvzero, 0, 20));
     
     //cpConstraint *dollyServo = cpSpaceAddConstraint(space_, cpGrooveJointNew(_slingshotLeft.getBody, _bird.getBody, cpv(200, 200), cpv(400, 200), cpvzero));
     cpConstraintSetPostSolveFunc(dollyServo, constraintPost);

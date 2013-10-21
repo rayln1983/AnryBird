@@ -6,7 +6,7 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 #define INIT_POSITION ccp(118,97)
-#define MASS 100.0f
+#define MASS 10000.0f
 #define WIDTH 20
 #define HEIGHT 50
 #define COLLISION_TYPE 2

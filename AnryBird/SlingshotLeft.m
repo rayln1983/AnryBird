@@ -6,7 +6,7 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 #define INIT_POSITION ccp(105,121)
-#define MASS 1.0f
+#define MASS 1000.0f
 #define WIDTH 22
 #define HEIGHT 63
 #define COLLISION_TYPE 2
@@ -31,7 +31,7 @@
     
     shape_ = cpBoxShapeNew(staticBody, WIDTH, HEIGHT);
 	cpShapeSetElasticity( shape_, 0.0f );
-	cpShapeSetFriction( shape_, 0.5f );
+	cpShapeSetFriction( shape_, 0.0f );
     cpShapeSetCollisionType(shape_, COLLISION_TYPE);
     cpShapeSetLayers(shape_, 3);
 
